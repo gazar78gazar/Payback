@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowLeft, CheckCircle, FileText, Clock, Calculator, MessageCircle } from 'lucide-react';
+import { Popup } from "@typebot.io/react";
 
 export default function PaybackWebsite() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openTypebot = () => {
+    setIsPopupOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 font-sans" dir="rtl">
+      {/* Typebot Popup */}
+      <Popup 
+        typebot="lead-generation-q2jthkn" 
+        isOpen={isPopupOpen} 
+        onClose={() => setIsPopupOpen(false)} 
+      />
+
       {/* Header */}
       <header className="bg-slate-100 shadow-sm">
         <div className="px-4 py-6">
@@ -17,7 +31,10 @@ export default function PaybackWebsite() {
       <section className="bg-blue-600 text-white px-4 py-8">
         <h2 className="text-2xl font-bold mb-4">החזר מס בקליק</h2>
         <p className="text-lg mb-6">בדקו כמה מגיע לכם תוך 2 דקות</p>
-        <button className="bg-slate-100 text-blue-600 px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors">
+        <button 
+          onClick={openTypebot}
+          className="bg-slate-100 text-blue-600 px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors"
+        >
           לבדיקת זכאות
         </button>
       </section>
@@ -73,7 +90,10 @@ export default function PaybackWebsite() {
       <section className="px-4 py-8 bg-slate-100">
         <h3 className="text-xl font-bold mb-4">מוכנים להתחיל?</h3>
         <p className="text-gray-600 mb-6">תהליך הבדיקה אורך כ-2 דקות</p>
-        <button className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+        <button 
+          onClick={openTypebot}
+          className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors"
+        >
           לבדיקת זכאות חינם
         </button>
       </section>
