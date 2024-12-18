@@ -1,48 +1,31 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ArrowLeft, CheckCircle, FileText, Clock, Calculator, MessageCircle } from 'lucide-react';
-import { Popup } from "@typebot.io/react";
+import { Standard } from "@typebot.io/react";
 
 export default function PaybackWebsite() {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.onerror = function(message, source, lineno, colno, error) {
-        console.log('Error:', message);
-        return false;
-      };
-    }
-  }, []);
+  const [showTypebot, setShowTypebot] = useState(false);
 
   const openTypebot = () => {
-    try {
-      if (typeof window !== 'undefined') {
-        window.alert('Testing button click');
-      }
-      console.log('Button clicked');
-      setIsPopupOpen(true);
-      console.log('isPopupOpen set to:', true);
-    } catch (error) {
-      if (typeof window !== 'undefined') {
-        window.alert('Error: ' + error.message);
-      }
-      console.error('Error:', error);
-    }
+    setShowTypebot(true);
   };
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans" dir="rtl">
-      {/* Typebot Popup with error handling */}
-      {typeof window !== 'undefined' && (
-        <Popup 
-          typebot="lead-generation-q2jthkn"
-          isOpen={isPopupOpen}
-          onClose={() => {
-            console.log('Closing popup');
-            setIsPopupOpen(false);
-          }}
-        />
+      {/* Typebot Container */}
+      {showTypebot && (
+        <div className="fixed inset-0 z-50 bg-white">
+          <button 
+            onClick={() => setShowTypebot(false)}
+            className="absolute top-4 right-4 z-50 p-2 bg-gray-100 rounded-full"
+          >
+            ✕
+          </button>
+          <Standard 
+            typebot="lead-generation-q2jthkn"
+            className="h-full w-full"
+          />
+        </div>
       )}
 
       {/* Header */}
