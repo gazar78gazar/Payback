@@ -14,12 +14,9 @@ export default function PaybackWebsite() {
       {/* Typebot Popup */}
       <Popup 
         typebot="lead-generation-q2jthkn" 
-        apiHost="typebot.co" 
 		isOpen={isPopupOpen} 
         onClose={() => setIsPopupOpen(false)}
-		autoShowDelay={3000}
-		defaultOpen={false}
-      />
+		/>
 
       {/* Header */}
       <header className="bg-slate-100 shadow-sm">
