@@ -13,7 +13,8 @@ export default function PaybackWebsite() {
     <div className="min-h-screen bg-gray-50 font-sans" dir="rtl">
       {/* Typebot Popup */}
       <Popup 
-        typebot="lead-generation-q2jthkn" 
+        typebot="lead-generation-q2jthkn"
+		apiHost="https://bot.paybackmas.com"
 		isOpen={isPopupOpen} 
         onClose={() => setIsPopupOpen(false)}
 		/>
