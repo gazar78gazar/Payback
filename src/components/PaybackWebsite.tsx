@@ -1,28 +1,43 @@
-import React, { useState } from 'react';
+'use client'
+import React, { useState, useEffect } from 'react';
 import { ArrowLeft, CheckCircle, FileText, Clock, Calculator, MessageCircle } from 'lucide-react';
 import { Popup } from "@typebot.io/react";
 
 export default function PaybackWebsite() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-	const openTypebot = () => {
-	window.alert('testing button click');
-	try
-	  console.log('Button clicked');
-	  setIsPopupOpen(true);
-		  console.log('isPopupOpen set to:', true);
-		    } catch (error) {
-			window.alert('error: ' +error.message);
-			}
-	};
+  useEffect(() => {
+    window.onerror = function(message, source, lineno, colno, error) {
+      console.log('Error:', message);
+      return false;
+    };
+  }, []);
+
+  const openTypebot = () => {
+    try {
+      window.alert('Testing button click');
+      console.log('Button clicked');
+      setIsPopupOpen(true);
+      console.log('isPopupOpen set to:', true);
+    } catch (error) {
+      window.alert('Error: ' + error.message);
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans" dir="rtl">
-      {/* Typebot Popup */}
-      <Popup 
-        typebot="lead-generation-q2jthkn"
-        isOpen={isPopupOpen}
-      />
+      {/* Typebot Popup with error handling */}
+      {typeof window !== 'undefined' && (
+        <Popup 
+          typebot="lead-generation-q2jthkn"
+          isOpen={isPopupOpen}
+          onClose={() => {
+            console.log('Closing popup');
+            setIsPopupOpen(false);
+          }}
+        />
+      )}
 
       {/* Header */}
       <header className="bg-slate-100 shadow-sm">
