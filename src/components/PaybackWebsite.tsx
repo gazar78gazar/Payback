@@ -50,7 +50,7 @@ export default function PaybackWebsite() {
             </div>
             <div>
               <h4 className="font-bold mb-1">1. ממלאים טופס קצר</h4>
-              <p className="text-gray-600">ממלאים טופס קצר עם הפרטים הבסיסיים שלכם</p>
+              <p className="text-gray-600">ממלאים טופס ייפוי כח קצר</p>
             </div>
           </div>
 
@@ -59,8 +59,8 @@ export default function PaybackWebsite() {
               <Calculator className="w-6 h-6 text-blue-600" />
             </div>
             <div>
-              <h4 className="font-bold mb-1">2. אנו בודקים זכאות</h4>
-              <p className="text-gray-600">המערכת בודקת את זכאותכם להחזר מס</p>
+              <h4 className="font-bold mb-1">2. אנו מחשבים את ההחזר</h4>
+              <p className="text-gray-600">ענו על שאלות נוספות והמערכת תחשב את החזר המס עבורכם</p>
             </div>
           </div>
 
@@ -80,7 +80,7 @@ export default function PaybackWebsite() {
             </div>
             <div>
               <h4 className="font-bold mb-1">4. אתם מקבלים החזר</h4>
-              <p className="text-gray-600">מקבלים את הכסף ישירות לחשבון הבנק</p>
+              <p className="text-gray-600">רשות המסים מפקידה את כל הכסף ישירות בחשבון הבנק</p>
             </div>
           </div>
         </div>
