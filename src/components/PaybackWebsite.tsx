@@ -7,20 +7,26 @@ export default function PaybackWebsite() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    window.onerror = function(message, source, lineno, colno, error) {
-      console.log('Error:', message);
-      return false;
-    };
+    if (typeof window !== 'undefined') {
+      window.onerror = function(message, source, lineno, colno, error) {
+        console.log('Error:', message);
+        return false;
+      };
+    }
   }, []);
 
   const openTypebot = () => {
     try {
-      window.alert('Testing button click');
+      if (typeof window !== 'undefined') {
+        window.alert('Testing button click');
+      }
       console.log('Button clicked');
       setIsPopupOpen(true);
       console.log('isPopupOpen set to:', true);
     } catch (error) {
-      window.alert('Error: ' + error.message);
+      if (typeof window !== 'undefined') {
+        window.alert('Error: ' + error.message);
+      }
       console.error('Error:', error);
     }
   };
