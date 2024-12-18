@@ -16,13 +16,12 @@ export default function PaybackWebsite() {
       {/* Typebot Popup */}
       <Popup 
         typebot="lead-generation-q2jthkn"
-		apiHost="https://bot.paybackmas.com"
-		isOpen={isPopupOpen} 
         onClose={() => {
-    console.log('Popup closing');
-    setIsPopupOpen(false);
-  }}
-		/>
+          console.log('Popup closing');
+          setIsPopupOpen(false);
+        }}
+        isOpen={isPopupOpen}
+      />
 
       {/* Header */}
       <header className="bg-slate-100 shadow-sm">
