@@ -5,9 +5,11 @@ import { Popup } from "@typebot.io/react";
 export default function PaybackWebsite() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const openTypebot = () => {
-    setIsPopupOpen(true);
-  };
+	const openTypebot = () => {
+	  console.log('Button clicked');
+	  setIsPopupOpen(true);
+	  console.log('isPopupOpen set to:', true);
+	};
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans" dir="rtl">
@@ -16,7 +18,10 @@ export default function PaybackWebsite() {
         typebot="lead-generation-q2jthkn"
 		apiHost="https://bot.paybackmas.com"
 		isOpen={isPopupOpen} 
-        onClose={() => setIsPopupOpen(false)}
+        onClose={() => {
+    console.log('Popup closing');
+    setIsPopupOpen(false);
+  }}
 		/>
 
       {/* Header */}
