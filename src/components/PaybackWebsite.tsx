@@ -6,9 +6,14 @@ export default function PaybackWebsite() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
 	const openTypebot = () => {
+	window.alert('testing button click');
+	try
 	  console.log('Button clicked');
 	  setIsPopupOpen(true);
-	  console.log('isPopupOpen set to:', true);
+		  console.log('isPopupOpen set to:', true);
+		    } catch (error) {
+			window.alert('error: ' +error.message);
+			}
 	};
 
   return (
@@ -16,10 +21,6 @@ export default function PaybackWebsite() {
       {/* Typebot Popup */}
       <Popup 
         typebot="lead-generation-q2jthkn"
-        onClose={() => {
-          console.log('Popup closing');
-          setIsPopupOpen(false);
-        }}
         isOpen={isPopupOpen}
       />
 
